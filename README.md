@@ -2,7 +2,14 @@
 Scripts and instructions to easily record data from kinesthetic demonstrations as rosbags and convert to matlab format.
 
 ---
-###Kinesthetic Demonstratio Setup:
+###Kinesthetic Demonstration Recording:
+To record/replay(bag) demonstrations you must install these packages:
+
+| Dependencies  |
+| ------------- |
+| [kuka_interface_packages](https://github.com/nbfigueroa/kuka_interface_packages)    |
+| [kuka-rviz-simulation](https://github.com/epfl-lasa/kuka-rviz-simulation)           |
+| [record_ros](https://github.com/epfl-lasa/record_ros) |
 
 #### To use the allegro hand to hold an object or tool
 Install: [allegro-lib](https://github.com/nbfigueroa/allegro-lib)
@@ -24,6 +31,40 @@ Install: [http://wiki.ros.org/barrett_hand](http://wiki.ros.org/barrett_hand)
 Easiest way to open/close move fingers is to use the GUI:
 ```
 rosrun rqt_bhand rqt_bhand
+```
+
+###Instructions
+#####Run KUKA Bridge to stream joint data:
+```
+$ rosrun kuka_fri_bridge run_lwr.sh
+```
+Run script up until ```monitor mode``` and set the KUKA to ```gravcomp``` in the control box. 
+
+If you need specific joints locked or to demonstrate fast motions, set the bridge to ```Joint Impedance Control`` mode, see here (https://github.com/epfl-lasa/kuka_interface_packages) and run the following planning nodes:
+
+###### Launch kuka-planning-interface:
+```
+$ something
+```
+```
+$ some other thing
+```
+
+
+###### Launch rviz to visualize Robot state :
+```
+$ roslaunch kuka_lwr_bringup lwr2_tabletop.launch robot_urdf_name:=kuka_grav_comp.xacro
+```
+
+
+##### Recorder node for all topics necessary
+```
+$ roslaunch bimanual_action_planners record_bimanual_demos.launch 
+```
+
+##### Start/Stop a Recording (Rosbag)
+```
+$ rosservice call /record/cmd "cmd: 'record/stop'"
 ```
 
 
