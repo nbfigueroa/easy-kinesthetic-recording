@@ -48,11 +48,15 @@ Run script up until ```monitor mode``` and set the KUKA to ```gravcomp``` in the
 If you need specific joints locked or to demonstrate fast motions, set the bridge to ```Joint Impedance Control`` mode, see here (https://github.com/epfl-lasa/kuka_interface_packages) and run the following planning nodes:
 
 ###### Launch kuka-planning-interface:
+Follow instructions in (https://github.com/nbfigueroa/kuka_planning_interface)
+
+Set robot to:
 ```
-$ something
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'grav_comp'
 ```
+or
 ```
-$ some other thing
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'safe_grav_comp'
 ```
 
 ##### Recorder node for all topics necessary
