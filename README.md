@@ -34,7 +34,7 @@ rosrun rqt_bhand rqt_bhand
 ```
 
 ###Instructions
-#####Run KUKA Bridge to stream joint data:
+##### Run KUKA Bridge to stream joint data:
 ```
 $ rosrun kuka_fri_bridge run_lwr.sh
 ```
@@ -51,7 +51,7 @@ $ some other thing
 ```
 
 
-###### Launch rviz to visualize Robot state :
+##### Launch rviz to visualize Robot state :
 ```
 $ roslaunch kuka_lwr_bringup lwr2_tabletop.launch robot_urdf_name:=kuka_grav_comp.xacro
 ```
@@ -66,10 +66,6 @@ $ roslaunch bimanual_action_planners record_bimanual_demos.launch
 ```
 $ rosservice call /record/cmd "cmd: 'record/stop'"
 ```
-
-
----
-###Recording Kinesthetic Demonstration as ROSBAGS:
 
 
 --
