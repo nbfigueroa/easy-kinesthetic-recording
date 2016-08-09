@@ -70,7 +70,7 @@ $ rosservice call /record/cmd "cmd: 'record/stop'"
 ```
 
 ###Replaying a recorded demonstration of a Bimanual Task:
-#####Visualization and sensor bringup (ft sensors, vision)
+#####Visualization
 ```
 $ roslaunch kuka_lwr_bringup lwr_realtime.launch
 ```
