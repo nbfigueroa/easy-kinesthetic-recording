@@ -32,4 +32,4 @@ rosrun rqt_bhand rqt_bhand
 
 
 --
-###Converting ROSBAGS of Demonstrations to MATfiles:
+###Converting ROSBAGS of Demonstrations to .mat files:
