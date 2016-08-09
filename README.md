@@ -34,6 +34,11 @@ rosrun rqt_bhand rqt_bhand
 ```
 
 ###Instructions
+##### Launch rviz to visualize Robot state :
+```
+$ roslaunch kuka_lwr_bringup lwr2_tabletop.launch robot_urdf_name:=kuka_grav_comp.xacro
+```
+
 ##### Run KUKA Bridge to stream joint data:
 ```
 $ rosrun kuka_fri_bridge run_lwr.sh
@@ -50,13 +55,6 @@ $ something
 $ some other thing
 ```
 
-
-##### Launch rviz to visualize Robot state :
-```
-$ roslaunch kuka_lwr_bringup lwr2_tabletop.launch robot_urdf_name:=kuka_grav_comp.xacro
-```
-
-
 ##### Recorder node for all topics necessary
 ```
 $ roslaunch bimanual_action_planners record_bimanual_demos.launch 
@@ -66,7 +64,6 @@ $ roslaunch bimanual_action_planners record_bimanual_demos.launch
 ```
 $ rosservice call /record/cmd "cmd: 'record/stop'"
 ```
-
 
 --
 ###Converting ROSBAGS of Demonstrations to .mat files:
