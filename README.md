@@ -2,7 +2,7 @@
 Scripts and instructions to easily record data from kinesthetic demonstrations as rosbags and convert to matlab format.
 
 ---
-Demonstrations
+###Kinesthetic Demonstratio Setup:
 
 #### To use the allegro hand to hold an object or tool
 Install: [allegro-lib](https://github.com/nbfigueroa/allegro-lib)
@@ -26,3 +26,10 @@ Easiest way to open/close move fingers is to use the GUI:
 rosrun rqt_bhand rqt_bhand
 ```
 
+
+---
+###Recording Kinesthetic Demonstration as ROSBAGS:
+
+
+--
+###Converting ROSBAGS of Demonstrations to MATfiles:
