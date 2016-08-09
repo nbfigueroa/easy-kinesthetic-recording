@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+	<arg name="path_save"   default="/home/nbfigueroa/Desktop/kinesthetic_recordings/Yo"/>
+	<arg name="topic"  	default="/KUKA/joint_states /KUKA/Pose /tf"/>
+	<arg name="file_name"  	default="demo_x"/>
+
+    <include file="$(find record_ros)/launch/record_ros.launch">
+			<arg name="path_save"   value="$(arg path_save)"/>
+			<arg name="topic"  	value="$(arg topic)"/>
+			<arg name="file_name"  	value="$(arg file_name)"/>
+    </include>
+
+</launch>

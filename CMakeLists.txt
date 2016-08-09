@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(easy-kinesthetic-recording)
+project(easy_kinesthetic_recording)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
