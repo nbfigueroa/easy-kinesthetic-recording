@@ -69,5 +69,16 @@ $ roslaunch bimanual_action_planners record_bimanual_demos.launch
 $ rosservice call /record/cmd "cmd: 'record/stop'"
 ```
 
---
-###Converting ROSBAGS of Demonstrations to .mat files:
+###Replaying a recorded demonstration of a Bimanual Task:
+#####Visualization
+```
+$ roslaunch kuka_lwr_bringup lwr_realtime.launch
+```
+#####Play bag
+```
+$ rosbag play *.bag
+```
+
+#####Extract topics to Mat file
+Use  [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag)
+
