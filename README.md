@@ -69,7 +69,7 @@ $ roslaunch bimanual_action_planners record_bimanual_demos.launch
 $ rosservice call /record/cmd "cmd: 'record/stop'"
 ```
 
-###Replaying a recorded demonstration of a Bimanual Task:
+###Replaying a recorded demonstration
 #####Visualization
 ```
 $ roslaunch kuka_lwr_bringup lwr_realtime.launch
