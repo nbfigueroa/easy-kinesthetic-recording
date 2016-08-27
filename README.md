@@ -61,7 +61,7 @@ $ rosservice call /control_cmd_interface/kuka_action_cmd 'safe_grav_comp'
 
 ##### Recorder node for all topics necessary
 ```
-$ roslaunch bimanual_action_planners record_bimanual_demos.launch 
+$ roslaunch easy_kinesthetic_recording record_demonstrations.launch
 ```
 
 ##### Start/Stop a Recording (Rosbag)
