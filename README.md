@@ -33,7 +33,7 @@ Easiest way to open/close move fingers is to use the GUI:
 rosrun rqt_bhand rqt_bhand
 ```
 
-###Instructions
+### Instructions
 ##### Launch rviz to visualize Robot state :
 ```
 $ roslaunch kuka_lwr_bringup lwr2_tabletop.launch robot_urdf_name:=kuka_grav_comp.xacro
@@ -69,16 +69,16 @@ $ roslaunch easy_kinesthetic_recording record_demonstrations.launch
 $ rosservice call /record/cmd "cmd: 'record/stop'"
 ```
 
-###Replaying a recorded demonstration
-#####Visualization
+### Replaying a recorded demonstration
+##### Visualization
 ```
 $ roslaunch kuka_lwr_bringup lwr_realtime.launch
 ```
-#####Play bag
+##### Play bag
 ```
 $ rosbag play *.bag
 ```
 
-#####Extract topics to Mat file
+##### Extract topics to Mat file
 Use  [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag)
 
