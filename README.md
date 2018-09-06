@@ -7,17 +7,23 @@ To record/replay(bag) demonstrations you must install these packages:
 
 | Dependencies  |
 | ------------- |
+| [kuka-lwr-ros](https://github.com/epfl-lasa/kuka-lwr-ros.git) |
 | [record_ros](https://github.com/epfl-lasa/record_ros) |
 
-
 ### Instructions
-##### Launch rviz to visualize Robot state :
-```
-$ roslaunch kuka_lwr_bringup lwr2_tabletop.launch robot_urdf_name:=kuka_grav_comp.xacro
-```
-
 ##### Run KUKA-LWR-ROS Controller
-
+Assuming you have installed the [kuka-lwr-ros](https://github.com/epfl-lasa/kuka-lwr-ros.git) package, run the real-robot control interface:
+```
+$ roslaunch lwr_simple_example real.launch
+```
+and
+```
+$ roslaunch lwr_fri lwr_fri_console.launch
+```
+Once the robot is in 'command' mode, you can put it in 'grav-comp' mode by:
+```
+$ ro....
+```
 
 ##### Recorder node for all topics necessary
 ```
