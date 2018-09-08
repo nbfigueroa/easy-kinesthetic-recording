@@ -23,7 +23,7 @@ def distance(p1, p2):
 
 
 class TaskTrajectory(object):
-    DISTANCE_THRESHOLD = 0.01
+    DISTANCE_THRESHOLD = 0.05
 
     def __init__(self, marker_pub):
         self._trajectory = []
@@ -31,7 +31,6 @@ class TaskTrajectory(object):
 
     def callback(self, msg):
         point = msg.position
-        print point.x, point.y, point.z
         if (len(self._trajectory) == 0 or
                 distance(self._trajectory[-1], point) > TaskTrajectory.DISTANCE_THRESHOLD):
             self._trajectory.append(point)

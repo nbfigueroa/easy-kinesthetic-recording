@@ -10,8 +10,6 @@
     <param name="robot_description" command="$(find xacro)/xacro.py $(arg robot_urdf_file)"/>
 
     <node  name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
-
-    <!-- <node name="lwr_fri" pkg="lwr_fri" type="lwr_fri_node" output="screen"/> -->
   </group>
 
 
