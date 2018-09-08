@@ -39,7 +39,7 @@ and when you are ready you can start/Stop a Recording (Rosbag) by typing the fol
 $ rosservice call /record/cmd "cmd: 'record/stop'"
 ```
 ##### Run Topic Recorder with Voice Commands (Optional)
-To control the ```rosservice call``` for the recorder node with voice commands, you should install and following the intructios in voice control package https://github.com/epfl-lasa/demo-voice-control.git and run the launch file:
+To control the ```rosservice call``` for the recorder node with voice commands, you should install and following the intructions in the voice control package https://github.com/epfl-lasa/demo-voice-control.git and run the launch file:
 ```
 roslaunch demo_voice_control teach_voice_control.launch
 ```
