@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <launch>
-	<arg name="topic"  	    default="/lwr/ee_pose /lwr/ee_vel /lwr/joint_states /tf /trajectory_marker /trajectory_marker_array"/>
+	<arg name="topic"  	    default="/lwr/ee_pose /lwr/ee_vel /lwr/joint_states /tf /trajectory_marker /trajectory_marker_array /SModelRobotOutput"/>
 	<arg name="path_save"   default="/home/nbfigueroa/kinesthetic_recordings/test/bags"/>	
 	<arg name="file_name"  	default="demo_x"/>
 	<arg name="viz_traj"  	default="true"/>
+	<arg name="viz_obj"  	default="true"/>
 
     <include file="$(find record_ros)/launch/record_ros.launch">
 			<arg name="path_save"   value="$(arg path_save)"/>
@@ -13,5 +14,9 @@
  	
  	<group if="$(arg viz_traj)">
      <node  name="traj_viz" pkg="easy_kinesthetic_recording" type="traj_viz.py"/>
+  	</group>
+
+	<group if="$(arg viz_obj)">
+     <node  name="obj_viz" pkg="easy_kinesthetic_recording" type="obj_viz.py"/>
   	</group>
 </launch>

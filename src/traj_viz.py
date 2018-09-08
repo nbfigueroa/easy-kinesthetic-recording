@@ -6,6 +6,7 @@ import math
 import rospy
 
 
+
 def wait_for_time():
     """Wait for simulated time to begin.
     """
@@ -23,7 +24,7 @@ def distance(p1, p2):
 
 
 class TaskTrajectory(object):
-    DISTANCE_THRESHOLD = 0.05
+    DISTANCE_THRESHOLD = 0.02
     
 
     def __init__(self, marker_pub):
