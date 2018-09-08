@@ -46,7 +46,7 @@ roslaunch demo_voice_control teach_voice_control.launch
 ### Replaying a recorded demonstration
 ##### Visualization
 ```
-$ roslaunch lwr_simple_example real.launch
+$ roslaunch easy_kinesthetic_recording replay_bag_demonstrations.launch
 ```
 ##### Play bag
 ```
