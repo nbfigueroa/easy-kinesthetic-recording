@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-	<arg name="topic"  	    default="/lwr/ee_pose /lwr/ee_vel /lwr/joint_states  /tf"/>
+	<arg name="topic"  	    default="/lwr/ee_pose /lwr/ee_vel /lwr/joint_states /tf /trajectory_marker /trajectory_marker_array"/>
 	<arg name="path_save"   default="/home/nbfigueroa/kinesthetic_recordings/test/bags"/>	
 	<arg name="file_name"  	default="demo_x"/>
 
