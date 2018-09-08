@@ -24,6 +24,11 @@ In the launch file ```launch/record_demonstrations.launch``` you can define the 
 ```
 <arg name="topic" default="/lwr/ee_pose /lwr/ee_vel /lwr/joint_states  /tf"/>
 ```
+You must also define the path to the directory where all bags will be recorded and the bag prefix-:
+```
+<arg name="path_save"   default="/home/kinesthetic_recordings/bags"/>
+<arg name="file_name"   default="demo_x"/>
+```
 Once you've done this, you can run the following launch file:
 ```
 $ roslaunch easy_kinesthetic_recording record_demonstrations.launch
