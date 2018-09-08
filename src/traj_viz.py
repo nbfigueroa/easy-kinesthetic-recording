@@ -24,10 +24,12 @@ def distance(p1, p2):
 
 class TaskTrajectory(object):
     DISTANCE_THRESHOLD = 0.05
+    
 
     def __init__(self, marker_pub):
         self._trajectory = []
         self._marker_pub = marker_pub
+        rospy.on_shutdown(self.shutdown)
 
     def callback(self, msg):
         point = msg.position
@@ -58,7 +60,13 @@ class TaskTrajectory(object):
             header=Header(frame_id='world'),
             color=ColorRGBA(0.5, 0.5, 0.5, 1.0))
         self._marker_pub.publish(msg)
-
+    
+    def shutdown(self):
+        """
+        command executed after Ctrl+C is pressed
+        """
+        rospy.loginfo("Stop Trajectory Viz Node")
+        rospy.sleep(1)
 
 def main():
     rospy.init_node('traj_viz')
@@ -69,6 +77,13 @@ def main():
     rospy.Subscriber('/lwr/ee_pose', Pose, trajectory.callback)
 
     rospy.spin()
+
+    rospy.loginfo('Running until shutdown (Ctrl-C).')
+    while not rospy.is_shutdown():
+       trajectory.shutdown()
+       rospy.sleep(0.5)
+
+    rospy.loginfo('Node finished')
 
 
 if __name__ == '__main__':
