@@ -9,6 +9,7 @@ To record/replay(bag) demonstrations you must install these packages:
 | ------------- |
 | [kuka-lwr-ros](https://github.com/epfl-lasa/kuka-lwr-ros.git) |
 | [record_ros](https://github.com/epfl-lasa/record_ros) |
+| [demo-voice-control](https://github.com/epfl-lasa/demo-voice-control.git) (Optional) |
 
 ### Instructions
 ##### Run KUKA-LWR-ROS Controller
