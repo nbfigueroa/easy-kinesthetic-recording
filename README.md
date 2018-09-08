@@ -19,14 +19,23 @@ $ roslaunch lwr_fri lwr_fri_console.launch
 ```
 Once the robot is in 'command' mode, it is automatically in gravity compensation mode and you can move the robot around as you wish.
 
-##### Recorder node for all topics necessary
+##### Run Topic Recorder
+In the launch file ```launch/record_demonstrations.launch``` you can define the topics that you wish to record in the following argument.
+```
+<arg name="topic" default="/lwr/ee_pose /lwr/ee_vel /lwr/joint_states  /tf"/>
+```
+Once you've done this, you can run the following launch file:
 ```
 $ roslaunch easy_kinesthetic_recording record_demonstrations.launch
 ```
-
-##### Start/Stop a Recording (Rosbag)
+and when you are ready you can start/Stop a Recording (Rosbag) by typing the following in a terminal:
 ```
 $ rosservice call /record/cmd "cmd: 'record/stop'"
+```
+##### Run Topic Recorder with Voice Commands (Optional)
+To control the ```rosservice call``` for the recorder node with voice commands, you should install and following the intructios in voice control package https://github.com/epfl-lasa/demo-voice-control.git and run the launch file:
+```
+roslaunch demo_voice_control teach_voice_control.launch
 ```
 
 ### Replaying a recorded demonstration
