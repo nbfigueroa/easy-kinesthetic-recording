@@ -17,10 +17,7 @@ Assuming you have installed the [kuka-lwr-ros](https://github.com/epfl-lasa/kuka
 $ roslaunch lwr_simple_example real.launch
 $ roslaunch lwr_fri lwr_fri_console.launch
 ```
-Once the robot is in 'command' mode, you can put it in 'grav-comp' mode by:
-```
-$ ro....
-```
+Once the robot is in 'command' mode, it is automatically in gravity compensation mode and you can move the robot around as you wish.
 
 ##### Recorder node for all topics necessary
 ```
@@ -35,7 +32,7 @@ $ rosservice call /record/cmd "cmd: 'record/stop'"
 ### Replaying a recorded demonstration
 ##### Visualization
 ```
-$ roslaunch kuka_lwr_bringup lwr_realtime.launch
+$ roslaunch lwr_simple_example real.launch
 ```
 ##### Play bag
 ```
