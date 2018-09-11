@@ -19,7 +19,7 @@ Assuming you have installed the [kuka-lwr-ros](https://github.com/epfl-lasa/kuka
 $ roslaunch lwr_simple_example real.launch
 $ roslaunch lwr_fri lwr_fri_console.launch
 ```
-Once the robot is in 'command' mode, it is automatically in gravity compensation mode and you can move the robot around as you wish.
+Once the robot is in 'command' mode, it is automatically in gravity compensation mode and you can move the robot around as you wish. You can also simply open the fri interface and put the robot in grav-comp mode via the teach pendant.
 
 ##### Run Topic Recorder
 In the launch file ```launch/record_demonstrations.launch``` you can define the topics that you wish to record in the following argument.
