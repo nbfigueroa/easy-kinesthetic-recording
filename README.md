@@ -71,7 +71,7 @@ To export the data recorded in the rosbags to matlab you can use the following p
 
 For the examples above, you should see the following:
 <p align="center">
-<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1.png" width="400"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2.png" width="400">
+<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1.png" width="450"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2.png" width="450">
 </>
 
 In this case, each primitive is labeled using the robotiq gripper state, hence segmentation of the recordings is straightforward. For more complex scenarios where the gripper state is not a sufficient indication you should segment the data, possibly with my segmentation algorithm: https://github.com/nbfigueroa/ICSC-HMM or Lucia's Constraint-based approach https://ieeexplore.ieee.org/document/7339616/
