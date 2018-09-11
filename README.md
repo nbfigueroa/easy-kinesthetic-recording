@@ -10,6 +10,7 @@ To record/replay(bag) demonstrations you must install these packages:
 | [kuka-lwr-ros](https://github.com/epfl-lasa/kuka-lwr-ros.git) |
 | [record_ros](https://github.com/epfl-lasa/record_ros) |
 | [demo-voice-control](https://github.com/epfl-lasa/demo-voice-control.git) (Optional) |
+| [robotiq](https://github.com/epfl-lasa/lasa-wiki/wiki/Robotiq-gripper) (Optional) |
 
 ### Instructions
 ##### Run KUKA-LWR-ROS Controller
@@ -38,8 +39,8 @@ and when you are ready you can start/Stop a Recording (Rosbag) by typing the fol
 ```
 $ rosservice call /record/cmd "cmd: 'record/stop'"
 ```
-##### Run Topic Recorder with Voice Commands (Optional)
-To control the ```rosservice call``` for the recorder node with voice commands, you should install and following the intructios in voice control package https://github.com/epfl-lasa/demo-voice-control.git and run the launch file:
+##### Control Topic Recorder with Voice Commands (Optional)
+To control the ```rosservice call``` for the recorder node with voice commands, you should install and following the intructions in the voice control package https://github.com/epfl-lasa/demo-voice-control.git and run the launch file:
 ```
 roslaunch demo_voice_control teach_voice_control.launch
 ```
