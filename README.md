@@ -84,14 +84,14 @@ In the folder ``` my_matlab_rosbag/trajectory-processing/``` the script named: `
 
 - For Scenario 1
 <p align="center">
-<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_prim1_processed.png" width="650">
-  <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_prim0_processed.png" width="650">
+<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_prim1_processed.png" width="850">
+  <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_prim0_processed.png" width="850">
 </p>
 
 - For Scenario 2
 <p align="center">
-<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_prim1_processed.png" width="650">
-  <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_prim0_processed.png" width="650">
+<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_prim1_processed.png" width="850">
+  <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_prim0_processed.png" width="850">
 </p>
 
 For more complex scenarios where the gripper state is not a sufficient indication you should segment the data, possibly with my segmentation algorithm: https://github.com/nbfigueroa/ICSC-HMM or Lucia's Constraint-based approach https://ieeexplore.ieee.org/document/7339616/
