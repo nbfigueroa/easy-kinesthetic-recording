@@ -39,14 +39,14 @@ and when you are ready you can start/Stop a Recording (Rosbag) by typing the fol
 ```
 $ rosservice call /record/cmd "cmd: 'record/stop'"
 ```
-
-Examples:
+***Examples:
 <p align="center">
 <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_demo.gif" width="350"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_demo.gif" width="350">
 </p>
 
+If the varables ```<arg name="viz_traj"  	default="true"/>``` and ```<arg name="viz_obj" default="true"/>``` are set to ```true``` in the launch file, you should see the following in rviz. ```viz_obj``` only works if the robotiq gripper is used.
 <p align="center">
-<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_rviz.gif" width="350"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_rviz.gif" width="350">
+<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_rviz.gif" width="340"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_rviz.gif" width="350">
 </p>
 
 ##### Control Topic Recorder with Voice Commands (Optional)
