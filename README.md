@@ -39,7 +39,7 @@ and when you are ready you can start/Stop a Recording (Rosbag) by typing the fol
 ```
 $ rosservice call /record/cmd "cmd: 'record/stop'"
 ```
-***Examples:
+#### Examples
 <p align="center">
 <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_demo.gif" width="350"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_demo.gif" width="350">
 </p>
