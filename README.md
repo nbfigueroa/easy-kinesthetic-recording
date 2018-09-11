@@ -50,7 +50,7 @@ roslaunch demo_voice_control teach_voice_control.launch
 <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_demo.gif" width="350"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_demo.gif" width="350">
 </p>
 
-If the varables ```<arg name="viz_traj"  	default="true"/>``` and ```<arg name="viz_obj" default="true"/>``` are set to ```true``` in the launch file, you should see the following in rviz. ```viz_obj``` only works if the robotiq gripper is used.
+If the variables ```<arg name="viz_traj"  	default="true"/>``` and ```<arg name="viz_obj" default="true"/>``` are set to ```true``` in the launch file, you should see the following in rviz. ```viz_obj``` only works if the robotiq gripper is used.
 <p align="center">
 <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_rviz.gif" width="340"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_rviz.gif" width="350">
 </p>
@@ -64,6 +64,8 @@ $ roslaunch easy_kinesthetic_recording replay_bag_demonstrations.launch
 ```
 $ rosbag play *.bag
 ```
+
+
 
 ##### Extract topics to Mat file
 Use  [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag)
