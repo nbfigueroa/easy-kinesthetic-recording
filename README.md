@@ -68,7 +68,7 @@ $ roslaunch easy_kinesthetic_recording replay_bag_demonstrations.launch
 $ rosbag play *.bag
 ```
 
-#### Extracting Data to Matlab
+### Extracting Data to Matlab
 To export the data recorded in the rosbags to matlab you can use the package [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag) package. In the folder ``` my_matlab_rosbag/tasks/``` you will find a script that processes the rosbag topics and converts them to mat file. The ```corl_demos.m``` script will generate the following plots:
 <p align="center">
 <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1.png" width="400"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2.png" width="400">
@@ -92,7 +92,7 @@ In the folder ``` my_matlab_rosbag/trajectory-processing/``` the script named: `
   <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_prim0_processed.png" width="850">
 </p>
 
-For more complex scenarios where the gripper state is not a sufficient indication you should segment the data, possibly with my segmentation algorithm: https://github.com/nbfigueroa/ICSC-HMM or Lucia's Constraint-based approach https://ieeexplore.ieee.org/document/7339616/
+For more complex scenarios where the gripper state is not a sufficient indication of a phase/action change, you should segment the data, possibly with my segmentation algorithm: https://github.com/nbfigueroa/ICSC-HMM or Lucia's Constraint-based approach https://ieeexplore.ieee.org/document/7339616/
 
 
 
