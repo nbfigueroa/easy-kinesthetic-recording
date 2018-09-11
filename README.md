@@ -9,9 +9,9 @@ To record/replay(bag) demonstrations you must install these packages:
 | ------------- |
 | [kuka-lwr-ros](https://github.com/epfl-lasa/kuka-lwr-ros.git) |
 | [record_ros](https://github.com/epfl-lasa/record_ros) |
-| [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag)|
 | [demo-voice-control](https://github.com/epfl-lasa/demo-voice-control.git) (Optional) |
 | [robotiq](https://github.com/epfl-lasa/lasa-wiki/wiki/Robotiq-gripper) (Optional) |
+| [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag) (If you want to export data to MATLAB)|
 
 
 ### Instructions
