@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 	<arg name="topic"  	    default="/lwr/ee_pose /lwr/ee_vel /lwr/joint_states /tf /trajectory_marker /trajectory_marker_array /SModelRobotOutput"/>
-	<arg name="path_save"   default="/home/nbfigueroa/kinesthetic_recordings/test/bags"/>	
+	<arg name="path_save"   default="/home/nbfigueroa/kinesthetic_recordings/corl-2018/bags/Sept10_04am"/>	
 	<arg name="file_name"  	default="demo_x"/>
 	<arg name="viz_traj"  	default="true"/>
 	<arg name="viz_obj"  	default="true"/>
