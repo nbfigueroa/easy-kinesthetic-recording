@@ -39,6 +39,16 @@ and when you are ready you can start/Stop a Recording (Rosbag) by typing the fol
 ```
 $ rosservice call /record/cmd "cmd: 'record/stop'"
 ```
+
+Examples:
+<p align="center">
+<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_demo.gif" width="350"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_rviz.gif" width="350">
+</p>
+
+<p align="center">
+<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_demo.gif" width="350"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_rviz.gif" width="350">
+</p>
+
 ##### Control Topic Recorder with Voice Commands (Optional)
 To control the ```rosservice call``` for the recorder node with voice commands, you should install and following the intructions in the voice control package https://github.com/epfl-lasa/demo-voice-control.git and run the launch file:
 ```
