@@ -56,6 +56,7 @@ If the variables ```<arg name="viz_traj"  	default="true"/>``` and ```<arg name=
 </p>
 
 ### Replaying a recorded demonstration
+You can replay the recorded demonstrations by running the following commands:
 ##### Visualization
 ```
 $ roslaunch easy_kinesthetic_recording replay_bag_demonstrations.launch
@@ -65,8 +66,23 @@ $ roslaunch easy_kinesthetic_recording replay_bag_demonstrations.launch
 $ rosbag play *.bag
 ```
 
-
-
 ##### Extract topics to Mat file
-Use  [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag)
+To export the data recorded in the rosbags to matlab you can use the following package [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag)
+
+For the examples above, you should see the following:
+<p align="center">
+<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1.png" width="340"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2.png" width="350">
+</p>
+
+In this case, each primitive is labeled using the robotiq gripper state, hence segmentation of the recordings is straightforward. For more complex scenarios where the gripper state is not a sufficient indication you should segment the data, possibly with my segmentation algorithm: https://github.com/nbfigueroa/ICSC-HMM or Lucia's Constraint-based approach https://ieeexplore.ieee.org/document/7339616/
+
+
+
+
+
+
+
+
+
+
 
