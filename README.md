@@ -69,9 +69,7 @@ $ rosbag play *.bag
 ```
 
 #### Extracting Data to Matlab
-To export the data recorded in the rosbags to matlab you can use the following package [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag)
-
-For the examples above, you should see the following:
+To export the data recorded in the rosbags to matlab you can use the package [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag) package. In the folder ``` my_matlab_rosbag/tasks/``` you will find a script that processes the rosbag topics and converts them to mat file. The ```corl_demos.m``` script will generate the following plots:
 <p align="center">
 <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1.png" width="400"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2.png" width="400">
 </>
