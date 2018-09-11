@@ -47,7 +47,7 @@ To control the ```rosservice call``` for the recorder node with voice commands, 
 ```
 roslaunch demo_voice_control teach_voice_control.launch
 ```
-#### Examples
+### Examples
 <p align="center">
 <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_demo.gif" width="350"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_demo.gif" width="350">
 </p>
