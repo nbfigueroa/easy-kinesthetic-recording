@@ -68,7 +68,7 @@ $ roslaunch easy_kinesthetic_recording replay_bag_demonstrations.launch
 $ rosbag play *.bag
 ```
 
-#### Extracting topics to Mat file
+#### Extracting Data to Matlab
 To export the data recorded in the rosbags to matlab you can use the following package [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag)
 
 For the examples above, you should see the following:
@@ -76,7 +76,25 @@ For the examples above, you should see the following:
 <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1.png" width="400"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2.png" width="400">
 </>
 
-In this case, each primitive is labeled using the robotiq gripper state, hence segmentation of the recordings is straightforward. For more complex scenarios where the gripper state is not a sufficient indication you should segment the data, possibly with my segmentation algorithm: https://github.com/nbfigueroa/ICSC-HMM or Lucia's Constraint-based approach https://ieeexplore.ieee.org/document/7339616/
+In these case, the recorded trajectories are labeled using the robotiq gripper state, hence segmentation of the recordings is straightforward; i.e. 
+- when the gripper is closed, this indicates the non-linear motion that must be learned
+- when the gripper is open, this indicates a "picking" or "back" motion that can also be learned
+
+In the folder ``` my_matlab_rosbag/trajectory-processing/``` the script named: ```extract_trajectories.m``` will generate data structures containing the trajectories corresponding to each primitive. It will compute the velocities of the end effector positions using the Savitsky-Golay filter. Hence the script will generate the following data:
+
+- For Scenario 1
+<p align="center">
+<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_prim1_processed.png" width="650">
+  <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_prim0_processed.png" width="650">
+</p>
+
+- For Scenario 2
+<p align="center">
+<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_prim1_processed.png" width="650">
+  <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_prim0_processed.png" width="650">
+</p>
+
+For more complex scenarios where the gripper state is not a sufficient indication you should segment the data, possibly with my segmentation algorithm: https://github.com/nbfigueroa/ICSC-HMM or Lucia's Constraint-based approach https://ieeexplore.ieee.org/document/7339616/
 
 
 
