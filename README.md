@@ -97,8 +97,7 @@ In the folder ``` my_matlab_rosbag/trajectory-processing/``` the script named: `
 For more complex scenarios where the gripper state is not a sufficient indication of a phase/action change, you should segment the data, possibly with my segmentation algorithm: https://github.com/nbfigueroa/ICSC-HMM or Lucia's Constraint-based approach https://ieeexplore.ieee.org/document/7339616/
 
 
-
-
+**Contact**: [Nadia Figueroa](http://lasa.epfl.ch/people/member.php?SCIPER=238387) (nadia.figueroafernandez AT epfl dot ch)
 
 
 
