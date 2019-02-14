@@ -1,5 +1,5 @@
 # easy-kinesthetic-recording
-Scripts and instructions to easily record data from kinesthetic demonstrations as rosbags and convert to matlab format.
+Scripts and instructions to easily record data from kinesthetic demonstrations (with force-torque measurements) as rosbags and convert to matlab format.
 
 ---
 ### Kinesthetic Demonstration Recording:
@@ -9,8 +9,9 @@ To record/replay(bag) demonstrations you must install these packages:
 | ------------- |
 | [kuka-lwr-ros](https://github.com/epfl-lasa/kuka-lwr-ros.git) |
 | [record_ros](https://github.com/epfl-lasa/record_ros) |
+| [net-ft-ros](https://github.com/epfl-lasa/net-ft-ros) |
 | [demo-voice-control](https://github.com/epfl-lasa/demo-voice-control.git) (Optional) |
-| [robotiq](https://github.com/epfl-lasa/lasa-wiki/wiki/Robotiq-gripper) (Optional) |
+
 
 ### Instructions
 ##### Run KUKA-LWR-ROS Controller
@@ -22,6 +23,12 @@ $ roslaunch lwr_fri lwr_fri_console.launch
 Once the robot is in 'command' mode, it is automatically in gravity compensation mode and you can move the robot around as you wish. You can also simply stay in 'command' mode, open the fri interface and put the robot in grav-comp mode via the teach pendant. What is the difference then?
 - Recording demonstrations in 'command' mode, the frequency of ```/lwr/joint_states``` and ```/lwr/ee_pose``` is 500 hz (dt=0.002)
 - Recording demonstrations in 'monitor' mode, the frequency of ```/lwr/joint_states``` and ```/lwr/ee_pose``` is 100 hz; (dt=0.01)
+
+##### Launch FT Sensor Streamer
+Assuming that you have installed the [net-ft-ros](https://github.com/epfl-lasa/net-ft-ros) package. Run the following launch file:
+```
+$ roslaunch lwr_simple_example real.launch
+```
 
 ##### Run Topic Recorder
 In the launch file ```launch/record_demonstrations.launch``` you can define the topics that you wish to record in the following argument.
