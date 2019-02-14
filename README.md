@@ -29,11 +29,11 @@ Assuming that you have installed the [net-ft-ros](https://github.com/epfl-lasa/n
 ```
 $ ping 128.178.145.248
 ```
-
 Run the following launch file.
 ```
-$ roslaunch netft_rdt_driver ft_sensor.launch
+$ roslaunch easy_kinesthetic_recording run_FT_streamer.launch
 ```
+Fill in this argument first ``<arg  name="ip_address"  default="128.178.145.248"/>``.
 
 ##### Run Topic Recorder
 In the launch file ```launch/record_demonstrations.launch``` you can define the topics that you wish to record in the following argument.
