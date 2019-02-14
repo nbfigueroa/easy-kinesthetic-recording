@@ -35,10 +35,16 @@ $ roslaunch easy_kinesthetic_recording run_FT_streamer.launch
 ```
 Fill in this argument first ``<arg  name="ip_address"  default="128.178.145.248"/>``.
 
+To have a nice visualization of the streaming data, type the following:
+```
+roscd roscd netft_rdt_driver/launch
+./launch_rqt.sh
+```
+
 ##### Run Topic Recorder
 In the launch file ```launch/record_demonstrations.launch``` you can define the topics that you wish to record in the following argument.
 ```
-<arg name="topic" default="/lwr/ee_pose /lwr/ee_vel /lwr/joint_states  /tf"/>
+<arg name="topic" default="/lwr/ee_pose /lwr/ee_vel /lwr/joint_states /ft_sensor/netft_data /ft_sensor/bias /tf"/>
 ```
 You must also define the path to the directory where all bags will be recorded and the bag prefix-:
 ```
