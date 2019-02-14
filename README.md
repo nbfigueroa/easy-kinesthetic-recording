@@ -25,9 +25,14 @@ Once the robot is in 'command' mode, it is automatically in gravity compensation
 - Recording demonstrations in 'monitor' mode, the frequency of ```/lwr/joint_states``` and ```/lwr/ee_pose``` is 100 hz; (dt=0.01)
 
 ##### Launch FT Sensor Streamer
-Assuming that you have installed the [net-ft-ros](https://github.com/epfl-lasa/net-ft-ros) package. Run the following launch file:
+Assuming that you have installed the [net-ft-ros](https://github.com/epfl-lasa/net-ft-ros) package. First, check which Net-FT box you have and ping it, i.e.
 ```
-$ roslaunch lwr_simple_example real.launch
+$ ping 128.178.145.248
+```
+
+Run the following launch file.
+```
+$ roslaunch netft_rdt_driver ft_sensor.launch
 ```
 
 ##### Run Topic Recorder
