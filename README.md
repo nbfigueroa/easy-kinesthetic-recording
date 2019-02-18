@@ -37,7 +37,7 @@ Fill in this argument first ``<arg  name="ip_address"  default="128.178.145.248"
 
 To have a nice visualization of the streaming data, type the following:
 ```
-roscd roscd netft_rdt_driver/launch
+roscd netft_rdt_driver/launch
 ./launch_rqt.sh
 ```
 
