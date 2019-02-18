@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <launch>
-	<arg name="topic"  	    default="/lwr/ee_pose /lwr/ee_vel /lwr/joint_states /tf /trajectory_marker /trajectory_marker_array /SModelRobotOutput"/>
-	<arg name="path_save"   default="/home/nbfigueroa/kinesthetic_recordings/corl-2018/bags/Sept10_04am"/>	
+	<arg name="topic"  	    default="/lwr/ee_pose /lwr/joint_states /tf /trajectory_marker /trajectory_marker_array /ft_sensor/netft_data /ft_sensor/bias"/>
+	<arg name="path_save"   default="/home/nbfigueroa/kinesthetic_recordings/jmlr-2019/bags/"/>	
 	<arg name="file_name"  	default="demo_x"/>
 	<arg name="viz_traj"  	default="true"/>
-	<arg name="viz_obj"  	default="true"/>
+	<arg name="viz_obj"  	default="false"/>
 
     <include file="$(find record_ros)/launch/record_ros.launch">
 			<arg name="path_save"   value="$(arg path_save)"/>

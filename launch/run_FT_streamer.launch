@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Launch FT Sensors-->
+    
+    <!-- Relative Transform of Sensor Frame to EE-flange -->  
+    <node pkg="tf" type="static_transform_publisher" name="hand2ft" args="0 0 0.04 0 0 0 lwr_7_link Tool_ft 500" />
+    <include file="$(find netft_rdt_driver)/launch/ft_sensor.launch">
+          <arg  name="ip_address"  default="128.178.145.248"/>
+          <arg  name="bias"        default="True"/>
+          <arg  name="rate"        default="100"/>  
+          <arg  name="frame_id"    default="Tool_ft"/>
+    </include>
+</launch>
