@@ -1,5 +1,5 @@
 # easy-kinesthetic-recording
-Scripts and instructions to easily record data from kinesthetic demonstrations as rosbags and convert to matlab format.
+Scripts and instructions to easily record data from kinesthetic demonstrations as rosbags and convert to matlab format using the Franka Panda Emika Robot.
 
 ---
 ### Kinesthetic Demonstration Recording:
@@ -112,10 +112,12 @@ In the folder ``` my_matlab_rosbag/trajectory-processing/``` the script named: `
   <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_prim0_processed.png" width="850">
 </p>
 
-For more complex scenarios where the gripper state is not a sufficient indication of a phase/action change, you should segment the data, possibly with my segmentation algorithm: https://github.com/nbfigueroa/ICSC-HMM or Lucia's Constraint-based approach https://ieeexplore.ieee.org/document/7339616/
+For more complex scenarios where the gripper state is not a sufficient indication of a phase/action change, you should segment the trajectories. 
+
+<!-- possibly with my segmentation algorithm: https://github.com/nbfigueroa/ICSC-HMM or Lucia's Constraint-based approach https://ieeexplore.ieee.org/document/7339616/ -->
 
 
-**Contact**: [Nadia Figueroa](http://lasa.epfl.ch/people/member.php?SCIPER=238387) (nadia.figueroafernandez AT epfl dot ch)
+**Contact**: [Nadia Figueroa](https://nbfigueroa.github.io/) (nadiafig AT seas dot upenn dot edu)
 
 
 
