@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="topic"  	    default="/tf /kinectleft/tag_detections_image /kinectright/tag_detections_image /workspace/right_hand  
+	/workspace/proc_station 
+	/workspace/check_station 
+	/workspace/pick_tray 
+	/workspace/OK_tray 
+	/workspace/NG_tray 
+	/xsens_lh_pose
+	/xsens_pelvis_pose
+	/xsens_rh_pose
+	/xsens_rp_pose"/>
+	<arg name="path_save"   default="/home/nbfigueroa/bags/melfa_demos_Nov_2022"/>	
+	<arg name="file_name"  	default="demo_x"/>
+	<arg name="viz_traj"  	default="false"/>
+	<arg name="viz_obj"  	default="false"/>
+
+    <include file="$(find record_ros)/launch/record_ros.launch">
+			<arg name="path_save"   value="$(arg path_save)"/>
+			<arg name="topic"  	value="$(arg topic)"/>
+			<arg name="file_name"  	value="$(arg file_name)"/>
+    </include>
+ 	
+ 	<group if="$(arg viz_traj)">
+     <node  name="traj_viz" pkg="easy_kinesthetic_recording" type="traj_viz.py"/>
+  	</group>
+
+	<group if="$(arg viz_obj)">
+     <node  name="obj_viz" pkg="easy_kinesthetic_recording" type="obj_viz.py"/>
+  	</group>
+</launch>
+
+
