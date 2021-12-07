@@ -29,9 +29,11 @@ $  wstool up
 $ rosdep install --from-paths . --ignore-src --rosdistro noetic 
 ```
 
-### Instructions
-##### Run Franka-ROS-Kinesthetic Controller
-Assuming you have installed the [kuka-lwr-ros](https://github.com/epfl-lasa/kuka-lwr-ros.git) package, run the real-robot control interface and console in different terminals:
+---
+## Instructions
+### Run Franka-ROS-Kinesthetic Controller
+
+<!-- Assuming you have installed the [kuka-lwr-ros](https://github.com/epfl-lasa/kuka-lwr-ros.git) package, run the real-robot control interface and console in different terminals:
 ```
 $ roslaunch lwr_simple_example real.launch
 $ roslaunch lwr_fri lwr_fri_console.launch
@@ -39,12 +41,12 @@ $ roslaunch lwr_fri lwr_fri_console.launch
 Once the robot is in 'command' mode, it is automatically in gravity compensation mode and you can move the robot around as you wish. You can also simply stay in 'command' mode, open the fri interface and put the robot in grav-comp mode via the teach pendant. What is the difference then?
 - Recording demonstrations in 'command' mode, the frequency of ```/lwr/joint_states``` and ```/lwr/ee_pose``` is 500 hz (dt=0.002)
 - Recording demonstrations in 'monitor' mode, the frequency of ```/lwr/joint_states``` and ```/lwr/ee_pose``` is 100 hz; (dt=0.01)
-
+ -->
 
 ##### Run Topic Recorder
-In the launch file ```launch/record_demonstrations.launch``` you can define the topics that you wish to record in the following argument.
+In the launch file ```launch/record_franka_demonstrations.launch``` you can define the topics that you wish to record in the following argument.
 ```
-<arg name="topic" default="/lwr/ee_pose /lwr/ee_vel /lwr/joint_states  /tf"/>
+<arg name="topic" default="/franka_state_controller/joint_states /franka_state_controller/franka_states /franka_state_controller/F_ext /O_EE_T  /tf"/>
 ```
 You must also define the path to the directory where all bags will be recorded and the bag prefix-:
 ```
@@ -77,6 +79,7 @@ If the variables ```<arg name="viz_traj"  	default="true"/>``` and ```<arg name=
 
 ### Replaying a recorded demonstration
 You can replay the recorded demonstrations by running the following commands:
+
 ##### Visualization
 ```
 $ roslaunch easy_kinesthetic_recording replay_bag_demonstrations.launch
