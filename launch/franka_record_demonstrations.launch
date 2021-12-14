@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-	<arg name="topic"  	    
+	<arg name="topics"  	    
 		default="/tf 
 		/franka_state_controller/joint_states 
 		/franka_state_controller/F_ext 
@@ -15,7 +15,7 @@
 
     <include file="$(find record_ros)/launch/record_ros.launch">
 			<arg name="path_save"   value="$(arg path_save)"/>
-			<arg name="topic"  	value="$(arg topic)"/>
+			<arg name="topic"  	value="$(arg topics)"/>
 			<arg name="file_name"  	value="$(arg file_name)"/>
     </include>
  	
