@@ -1,6 +1,6 @@
 - git:
     local-name: record_ros
-    uri: https://github.com/epfl-lasa/record_ros
+    uri: https://github.com/nbfigueroa/record_ros.git
     version: master
     
 - git:
