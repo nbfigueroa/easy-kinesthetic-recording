@@ -7,8 +7,3 @@
     local-name: rosbag_to_mat
     uri: https://github.com/nbfigueroa/rosbag_to_mat.git
     version: main
-    
-- git:
-    local-name: demo-voice-control
-    uri: https://github.com/epfl-lasa/demo-voice-control.git
-    version: master
