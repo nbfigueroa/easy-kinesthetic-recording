@@ -56,7 +56,7 @@ def main():
     objectViz = ObjectViz(marker_publisher)
 
     # Add subscriber for "object grasped state" should be a boolean!
-    # rospy.Subscriber('/franka_gripper/object_grasped', Bool, objectViz_rh.graspedCallback)
+    # rospy.Subscriber('/franka_gripper/gripper_state_grasped', Bool, objectViz_rh.graspedCallback)
     rospy.Subscriber('/franka_state_controller/O_T_EE', PoseStamped, objectViz.poseCallback)
     
     rospy.spin()
