@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="topic"  	    
+		default="/tf 
+		/franka_state_controller/joint_states 
+		/franka_state_controller/F_ext 
+		/franka_state_controller/O_T_EE 
+		/franka_state_controller/O_T_FL 
+		/franka_gripper/joint_states"/>
+	<arg name="path_save"      default="/home/panda2/rosbag_recordings/cooking/"/>	
+	<arg name="file_name"  	   default="demo_"/>
+	<arg name="viz_traj"  	   default="true"/>
+	<arg name="viz_obj"  	   default="true"/>
+
+    <include file="$(find record_ros)/launch/record_ros.launch">
+			<arg name="path_save"   value="$(arg path_save)"/>
+			<arg name="topic"  	value="$(arg topic)"/>
+			<arg name="file_name"  	value="$(arg file_name)"/>
+    </include>
+ 	
+	<!-- Add here the name of the topic to track! --> 	
+ 	<group if="$(arg viz_traj)">
+     <node  name="franka_traj_viz" pkg="easy_kinesthetic_recording" type="franka_traj_viz.py" respawn="false" output="screen"/>
+  	</group>
+
+  	<!-- Add here the name of the topic to track! -->
+	<group if="$(arg viz_obj)">
+     <node  name="franka_obj_viz" pkg="easy_kinesthetic_recording" type="franka_obj_viz.py"  respawn="false" output="screen"/>
+  	</group>
+</launch>
+
+

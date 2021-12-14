@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="rviz_config"   default="$(find lwr_launch)/launch/rviz_config.rviz"/>
+  <arg name="load-rviz"     default="true"/>
+  <arg name="rviz_bringup"  default="$(arg load-rviz)"/> <!--alias-->
+  <arg name="robot_urdf_file" 	default="$(find single_lwr_robot)/robot/single_lwr_robot.urdf.xacro"/>
+  <arg name="viz_obj"   default="true"/>
+
+  <group ns="lwr">
+    <param name="robot_description" command="$(find xacro)/xacro.py $(arg robot_urdf_file)"/>
+
+    <node  name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  </group>
+
+  <group if="$(arg viz_obj)">
+     <node  name="obj_viz" pkg="easy_kinesthetic_recording" type="obj_viz.py"/>
+  </group>
+
+  <!-- LAUNCH RVIZ -->
+  <group if="$(arg rviz_bringup)">
+    <node name="lwr_rviz" pkg="rviz" type="rviz" respawn="false" args="-d $(arg rviz_config)" output="screen"/>
+  </group>
+</launch>

@@ -1,10 +1,9 @@
 #!/usr/bin/env python
-from geometry_msgs.msg import Quaternion, Pose, Point, Vector3
+from geometry_msgs.msg import Pose, PoseStamped, Point, Vector3
 from std_msgs.msg import Header, ColorRGBA
 from visualization_msgs.msg import Marker
 import math
 import rospy
-
 
 
 def wait_for_time():
@@ -12,7 +11,6 @@ def wait_for_time():
     """
     while rospy.Time().now().to_sec() == 0:
         pass
-
 
 def distance(p1, p2):
     """Returns the distance between two Points/Vector3s.
@@ -22,11 +20,8 @@ def distance(p1, p2):
     dz = p1.z - p2.z
     return math.sqrt(dx * dx + dy * dy + dz * dz)
 
-
 class TaskTrajectory(object):
-    DISTANCE_THRESHOLD = 0.02
-    
-
+    DISTANCE_THRESHOLD = 0.01
     def __init__(self, marker_pub):
         self._trajectory = []
         self._marker_pub = marker_pub
@@ -44,9 +39,8 @@ class TaskTrajectory(object):
         self.marker_pose.position.z = 0.0
 
     def callback(self, msg):
-        point = msg.position
-        # point.z = point.z - 0.4 
-        point.z = point.z 
+        self._object_pose = msg.pose
+        point = self._object_pose.position
         if (len(self._trajectory) > 100):
             self._trajectory = []
             self._trajectory.append(point)
@@ -64,10 +58,8 @@ class TaskTrajectory(object):
             id=len(self._trajectory),
             pose=self.marker_pose,
             points=self._trajectory,
-            scale=Vector3(0.01, 0.01, 0.01),
-            # header=Header(frame_id='world'),
-            header=Header(frame_id='xsens_origin'),
-            # header=Header(frame_id='xsens_origin_flipped'),
+            scale=Vector3(0.005, 0.005, 0.005),
+            header=Header(frame_id='panda_link0'),
             color=ColorRGBA(1.0, 0.0, 0.0, 1.0))
         self._marker_pub.publish(msg)
 
@@ -79,9 +71,7 @@ class TaskTrajectory(object):
             pose=self.marker_pose,
             points=self._trajectory,
             scale=Vector3(0.002, 0.002, 0.002),
-            # header=Header(frame_id='world'),
-            header=Header(frame_id='xsens_origin'),
-            # header=Header(frame_id='xsens_origin_flipped'),
+            header=Header(frame_id='panda_link0'),
             color=ColorRGBA(0.5, 0.5, 0.5, 1.0))
         self._marker_pub.publish(msg)
     
@@ -93,12 +83,13 @@ class TaskTrajectory(object):
         rospy.sleep(1)
 
 def main():
-    rospy.init_node('traj_viz')
+    rospy.init_node('franka_traj_viz')
     wait_for_time()
+
     marker_publisher = rospy.Publisher(
-        'xsens_trajectory_marker', Marker, queue_size=5)
+        'franka_trajectory_marker', Marker, queue_size=5)
     trajectory = TaskTrajectory(marker_publisher)
-    rospy.Subscriber('/xsens_RH_pose', Pose, trajectory.callback)
+    rospy.Subscriber('/franka_state_controller/O_T_EE', PoseStamped, trajectory.callback)
 
     rospy.spin()
 

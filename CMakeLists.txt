@@ -102,6 +102,11 @@ catkin_package(
 #  DEPENDS system_lib
 )
 
+catkin_install_python(
+  PROGRAMS src/franka_obj_viz.py src/franka_traj_viz.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
 ###########
 ## Build ##
 ###########
