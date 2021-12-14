@@ -7,7 +7,8 @@ Scripts and instructions to easily record data from kinesthetic demonstrations a
 
 | Dependencies  |
 | ------------- |
-| [record_ros](https://github.com/epfl-lasa/record_ros) |
+| [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) |
+| [record_ros](https://github.com/nbfigueroa/record_ros) |
 | [rosbag_to_mat](https://github.com/nbfigueroa/rosbag_to_mat) (If you want to export data to MATLAB)|
 | [demo-voice-control](https://github.com/epfl-lasa/demo-voice-control.git) (Optional) |
 
@@ -30,37 +31,46 @@ $ rosdep install --from-paths . --ignore-src --rosdistro noetic
 ```
 
 ---
-## Instructions
-### Run Franka-ROS-Kinesthetic Controller
+## Usage
 
-<!-- Assuming you have installed the [kuka-lwr-ros](https://github.com/epfl-lasa/kuka-lwr-ros.git) package, run the real-robot control interface and console in different terminals:
+### Run Franka-ROS-Kinesthetic Controller
+Here we assume you have installed the [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) package and know how to use it. 
+
+In two terminals you should launch the following:
+```bash
+roslaunch franka_interactive_controllers franka_interactive_bringup.launch
 ```
-$ roslaunch lwr_simple_example real.launch
-$ roslaunch lwr_fri lwr_fri_console.launch
+```bash
+roslaunch franka_interactive_controllers joint_gravity_compensation_controller.launch
 ```
-Once the robot is in 'command' mode, it is automatically in gravity compensation mode and you can move the robot around as you wish. You can also simply stay in 'command' mode, open the fri interface and put the robot in grav-comp mode via the teach pendant. What is the difference then?
-- Recording demonstrations in 'command' mode, the frequency of ```/lwr/joint_states``` and ```/lwr/ee_pose``` is 500 hz (dt=0.002)
-- Recording demonstrations in 'monitor' mode, the frequency of ```/lwr/joint_states``` and ```/lwr/ee_pose``` is 100 hz; (dt=0.01)
- -->
+
+IMAGE HERE
 
 ##### Run Topic Recorder
-In the launch file ```launch/record_franka_demonstrations.launch``` you can define the topics that you wish to record in the following argument.
+In the launch file ```launch/franka_record_demonstrations.launch``` you can define the topics that you wish to record in the following argument.
 ```
-<arg name="topic" default="/franka_state_controller/joint_states /franka_state_controller/franka_states /franka_state_controller/F_ext /O_EE_T  /tf"/>
+	<arg name="topic"  	    
+		default="/tf 
+		/franka_state_controller/joint_states 
+		/franka_state_controller/F_ext 
+		/franka_state_controller/O_T_EE 
+		/franka_state_controller/O_T_FL 
+		/franka_gripper/joint_states"/>	
 ```
 You must also define the path to the directory where all bags will be recorded and the bag prefix-:
 ```
-<arg name="path_save"   default="/home/kinesthetic_recordings/bags"/>
-<arg name="file_name"   default="demo_x"/>
+<arg name="path_save"      default="/home/panda2/rosbag_recordings/cooking/"/>
+<arg name="file_name"  	   default="demo_"/>
 ```
 Once you've done this, you can run the following launch file:
-```
-$ roslaunch easy_kinesthetic_recording record_demonstrations.launch
+```bash
+roslaunch easy_kinesthetic_recording franka_record_demonstrations.launch
 ```
 and when you are ready you can start/Stop a Recording (Rosbag) by typing the following in a terminal:
+```bash
+ rosservice call /record/cmd "cmd: 'record/stop'"
 ```
-$ rosservice call /record/cmd "cmd: 'record/stop'"
-```
+TODO: MAKE THIS INTO A GUI
 
 ##### Control Topic Recorder with Voice Commands (Optional)
 To control the ```rosservice call``` for the recorder node with voice commands, you should install and following the intructions in the voice control package https://github.com/epfl-lasa/demo-voice-control.git and run the launch file:
