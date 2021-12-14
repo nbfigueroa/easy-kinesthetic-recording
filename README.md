@@ -91,8 +91,8 @@ If the variables ```<arg name="viz_traj"  	default="true"/>``` and ```<arg name=
 You can replay the recorded demonstrations by running the following commands:
 
 ##### Visualization
-```
-$ roslaunch easy_kinesthetic_recording replay_bag_demonstrations.launch
+```bash
+roslaunch easy_kinesthetic_recording franka_replay_bag_demonstrations.launch
 ```
 ##### Play bag
 ```
