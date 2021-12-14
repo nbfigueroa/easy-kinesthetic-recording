@@ -103,7 +103,7 @@ catkin_package(
 )
 
 catkin_install_python(
-  PROGRAMS src/franka_obj_viz.py src/franka_traj_viz.py
+  PROGRAMS src/franka_obj_viz.py src/franka_traj_viz.py src/gui_topic_recorder_client.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

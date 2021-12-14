@@ -7,10 +7,11 @@
 		/franka_state_controller/O_T_EE 
 		/franka_state_controller/O_T_FL 
 		/franka_gripper/joint_states"/>
-	<arg name="path_save"      default="/home/panda2/rosbag_recordings/cooking/"/>	
-	<arg name="file_name"  	   default="demo_"/>
-	<arg name="viz_traj"  	   default="true"/>
-	<arg name="viz_obj"  	   default="true"/>
+	<arg name="path_save"        default="/home/panda2/rosbag_recordings/cooking/"/>	
+	<arg name="file_name"  	     default="demo"/>
+	<arg name="viz_traj"  	     default="true"/>
+	<arg name="viz_obj"  	     default="true"/>
+	<arg name="use_recorder_gui" default="true" />
 
     <include file="$(find record_ros)/launch/record_ros.launch">
 			<arg name="path_save"   value="$(arg path_save)"/>
@@ -27,6 +28,10 @@
 	<group if="$(arg viz_obj)">
      <node  name="franka_obj_viz" pkg="easy_kinesthetic_recording" type="franka_obj_viz.py"  respawn="false" output="screen"/>
   	</group>
+
+  <!-- Bring up recorder GUI to control recorder from code -->  
+  <node if="$(arg use_recorder_gui)" name="gui_topic_recorder_client" pkg="easy_kinesthetic_recording" type="gui_topic_recorder_client.py" respawn="false" output="screen"/>
+
 </launch>
 
 
