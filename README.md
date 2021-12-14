@@ -8,7 +8,7 @@ Scripts and instructions to easily record data from kinesthetic demonstrations a
 | Dependencies  |
 | ------------- |
 | [record_ros](https://github.com/epfl-lasa/record_ros) |
-| [rosbag-to-mat](https://github.com/nbfigueroa/rosbag_to_mat) (If you want to export data to MATLAB)|
+| [rosbag_to_mat](https://github.com/nbfigueroa/rosbag_to_mat) (If you want to export data to MATLAB)|
 | [demo-voice-control](https://github.com/epfl-lasa/demo-voice-control.git) (Optional) |
 
 
