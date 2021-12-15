@@ -58,11 +58,11 @@ In the launch file ```launch/franka_record_demonstrations.launch``` you can defi
 You must also define the path to the directory where all bags will be recorded and the bag prefix-:
 ```
 <arg name="path_save"      default="/home/panda2/rosbag_recordings/cooking/"/>
-<arg name="file_name"  	   default="demo_"/>
+<arg name="file_name"  	   default="demo"/>
 ```
 Once you've done this, you can run the following launch file:
 ```bash
-roslaunch easy_kinesthetic_recording franka_record_demonstrations.launch
+roslaunch easy_kinesthetic_recording franka_record_demonstra----tions.launch
 ```
 
 You should now see the following displayed in your screen (without the trajectories):
@@ -85,8 +85,12 @@ To control the ```rosservice call``` for the recorder node with voice commands, 
 	```
 
 ### Examples
+
+This code together with [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) has been used for two household tasks:
+**cooking preparation task** (scooping and mixing ingredients from bowls) and **table setting task** (grabbing plates/cutlery from dish rack and placing it on a table).
+
 <p align="center">
-	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_task_reduced.gif" width="700x">
+	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_task_reduced.gif" width="500x">
 </p>
 
 If the following variables are set to ``true``: 
@@ -95,7 +99,7 @@ If the following variables are set to ``true``:
 You should see the following in rviz the trajectories and green block as shown above in rviz.
 
 <p align="center">
-	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_recording.gif" width="700x">
+	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_recording.gif" width="500x">
 </p>
 
 The green block represent the state of the gripper:
@@ -114,6 +118,12 @@ roslaunch easy_kinesthetic_recording franka_replay_bag_demonstrations.launch
 $ rosbag play *.bag
 ```
 If all working you can see the trajectories being replayed with the franka, the gripper will not be shown and you might see some erros in rviz, but that's fine:
+
+
+<p align="center">
+	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_recording.gif" width="500x">
+</p>
+
 
 ### Extracting Data to Matlab
 **[UPDATE TO NEW STUFF]**
