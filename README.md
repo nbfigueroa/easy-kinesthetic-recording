@@ -44,8 +44,6 @@ roslaunch franka_interactive_controllers franka_interactive_bringup.launch
 roslaunch franka_interactive_controllers joint_gravity_compensation_controller.launch
 ```
 
-IMAGE HERE
-
 ##### Run Topic Recorder
 In the launch file ```launch/franka_record_demonstrations.launch``` you can define the topics that you wish to record in the following argument.
 ```
@@ -66,26 +64,43 @@ Once you've done this, you can run the following launch file:
 ```bash
 roslaunch easy_kinesthetic_recording franka_record_demonstrations.launch
 ```
-and when you are ready you can start/Stop a Recording (Rosbag) by typing the following in a terminal:
+
+You should now see the following displayed in your screen (without the trajectories):
+
+<p align="center">
+<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/franka_kinesthetic_teaching.png" width="700x">
+</p>
+
+
+To record/stop a rosbag recording you can either do it by: 
+- Pressing the buttons on the GUI as shown in the image above
+- Type the following in a terminal
 ```bash
  rosservice call /record/cmd "cmd: 'record/stop'"
-```
-TODO: MAKE THIS INTO A GUI
-
-##### Control Topic Recorder with Voice Commands (Optional)
+ ```
+- Control Topic Recorder with Voice Commands (Optional - TBD for Franka)
 To control the ```rosservice call``` for the recorder node with voice commands, you should install and following the intructions in the voice control package https://github.com/epfl-lasa/demo-voice-control.git and run the launch file:
-```
-roslaunch demo_voice_control teach_voice_control.launch
-```
+	```bash
+	roslaunch demo_voice_control teach_voice_control.launch
+	```
+
 ### Examples
 <p align="center">
-<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_demo.gif" width="350"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_demo.gif" width="350">
+	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_task_reduced.gif" width="700x">
 </p>
 
-If the variables ```<arg name="viz_traj"  	default="true"/>``` and ```<arg name="viz_obj" default="true"/>``` are set to ```true``` in the launch file, you should see the following in rviz. ```viz_obj``` only works if the robotiq gripper is used.
+If the following variables are set to ``true``: 
+- ``<arg name="viz_traj"  default="true"/>`` 
+- ``<arg name="viz_obj" default="true"/>`` 
+You should see the following in rviz the trajectories and green block as shown above in rviz.
+
 <p align="center">
-<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_rviz.gif" width="340"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_rviz.gif" width="350">
+	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_recording.gif" width="700x">
 </p>
+
+The green block represent the state of the gripper:
+- green: an object is grasped
+- gray: no object is grasped
 
 ### Replaying a recorded demonstration
 You can replay the recorded demonstrations by running the following commands:
@@ -95,14 +110,16 @@ You can replay the recorded demonstrations by running the following commands:
 roslaunch easy_kinesthetic_recording franka_replay_bag_demonstrations.launch
 ```
 ##### Play bag
-```
+```bash
 $ rosbag play *.bag
 ```
+If all working you can see the trajectories being replayed with the franka, the gripper will not be shown and you might see some erros in rviz, but that's fine:
 
 ### Extracting Data to Matlab
+**[UPDATE TO NEW STUFF]**
 To export the data recorded in the rosbags to matlab you can use the package [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag) package. In the folder ``` my_matlab_rosbag/tasks/``` you will find a script that processes the rosbag topics and converts them to mat file. The ```corl_demos.m``` script will generate the following plots:
 <p align="center">
-<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1.png" width="400"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2.png" width="400">
+	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1.png" width="400"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2.png" width="400">
 </>
 
 In these case, the recorded trajectories are labeled using the robotiq gripper state, hence segmentation of the recordings is straightforward; i.e. 
@@ -114,7 +131,7 @@ In the folder ``` my_matlab_rosbag/trajectory-processing/``` the script named: `
 - For Scenario 1
 <p align="center">
 <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_prim1_processed.png" width="850">
-  <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_prim0_processed.png" width="850">
+<!--   <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_prim0_processed.png" width="850"> -->
 </p>
 
 - For Scenario 2
