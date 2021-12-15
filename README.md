@@ -87,7 +87,8 @@ To control the ```rosservice call``` for the recorder node with voice commands, 
 ### Examples
 
 This code together with [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) has been used for two household tasks:
-**cooking preparation task** (scooping and mixing ingredients from bowls) and **table setting task** (grabbing plates/cutlery from dish rack and placing it on a table).
+- **cooking preparation task**: scooping and mixing ingredients from bowls
+- **table setting task**: grasping plates/cutlery from dish rack and placing it on a table.
 
 <p align="center">
 	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_task_reduced.gif" width="500x">
