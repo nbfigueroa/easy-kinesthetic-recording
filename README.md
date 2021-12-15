@@ -121,7 +121,7 @@ If all working you can see the trajectories being replayed with the franka, the 
 
 
 <p align="center">
-	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_recording.gif" width="500x">
+	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_rosbag_replay.gif" width="500x">
 </p>
 
 
