@@ -67,13 +67,13 @@ roslaunch easy_kinesthetic_recording franka_record_demonstrations.launch
 
 Alternatively, you can launch the following launch file from [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) that will bringup both the joint gravity compensation controllers and the topic recording launch file: 
 ```bash
-roslaunch franka_interactive_controllers franka_record_demonstrations.launch
+roslaunch franka_interactive_controllers franka_kinesthetic_teaching.launch
 ```
 
 You should now see the following displayed in your screen (without the trajectories):
 
 <p align="center">
-<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/franka_kinesthetic_teaching.png" width="700x">
+<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/franka_kinesthetic_teaching.png" width="800x">
 </p>
 
 
@@ -90,28 +90,6 @@ To control the ```rosservice call``` for the recorder node with voice commands, 
 roslaunch demo_voice_control teach_voice_control.launch
 ``` -->
 
-### Examples
-
-This code together with [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) has been used for two household tasks:
-- **cooking preparation task**: scooping and mixing ingredients from bowls
-- **table setting task**: grasping plates/cutlery from dish rack and placing it on a table.
-
-<p align="center">
-	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_task_reduced.gif" width="500x">
-</p>
-
-If the following variables are set to ``true``: 
-- ``<arg name="viz_traj"  default="true"/>`` 
-- ``<arg name="viz_obj" default="true"/>`` 
-You should see the following in rviz the trajectories and green block as shown above in rviz.
-
-<p align="center">
-	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_recording.gif" width="500x">
-</p>
-
-The green block represent the state of the gripper:
-- green: an object is grasped
-- gray: no object is grasped
 
 ### Replaying a recorded demonstration
 You can replay the recorded demonstrations by running the following commands:
@@ -124,12 +102,39 @@ roslaunch easy_kinesthetic_recording franka_replay_bag_demonstrations.launch
 ```bash
 $ rosbag play *.bag
 ```
-If all working you can see the trajectories being replayed with the franka, the gripper will not be shown and you might see some erros in rviz, but that's fine:
+If the following variables are set to ``true``: 
+- ``<arg name="viz_traj"  default="true"/>`` 
+- ``<arg name="viz_obj" default="true"/>`` 
 
+You can see the trajectories being replayed with the franka, the gripper will not be shown and you might see some erros in rviz, but that's fine:
+The green block represent the state of the gripper:
+- green: an object is grasped
+- gray: no object is grasped
 
-<p align="center">
+See examples below.
+
+<!-- <p align="center">
 	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_rosbag_replay.gif" width="500x">
 </p>
+ -->
+
+### Examples
+
+This code together with [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) has been used for two household tasks:
+- **cooking preparation task**: scooping and mixing ingredients from bowls
+
+<p align="center">
+	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_task_reduced.gif" width="450x">
+<!-- 	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_recording.gif" width="400x">  -->
+	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_rosbag_replay.gif" width="475x">
+</p>
+<p align="center">
+	*[Left: Real continuous demonstatrion, Right: Visualization of recorded trajectories by replaying recorded rosbag]*
+</p>
+
+- **table setting task**: grasping plates/cutlery from dish rack and placing it on a table.
+*To Fill..*
+
 
 
 ### Extracting Data to Matlab
