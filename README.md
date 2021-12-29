@@ -1,5 +1,5 @@
 # easy-kinesthetic-recording
-Scripts and instructions to easily record data from kinesthetic demonstrations as rosbags and convert to matlab format using the Franka Panda Emika Robot.
+Scripts and instructions to easily record data from kinesthetic demonstrations as rosbags and convert to matlab (or python - experimental) using the Franka Panda Emika Robot.
 
 ---
 
@@ -9,8 +9,8 @@ Scripts and instructions to easily record data from kinesthetic demonstrations a
 | ------------- |
 | [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) |
 | [record_ros](https://github.com/nbfigueroa/record_ros) |
-| [rosbag_to_mat](https://github.com/nbfigueroa/rosbag_to_mat) (If you want to export data to MATLAB)|
-| [bagpy](https://github.com/nbfigueroa/rosbag_to_mat) (If you want to export data to MATLAB)|
+| [rosbag_to_mat](https://github.com/nbfigueroa/rosbag_to_mat) (Working - If you want to export data to MATLAB)|
+| [bagpy](https://jmscslgroup.github.io/bagpy/) (Experimental - If you want to export data to Python)|
 
 <!-- | [demo-voice-control](https://github.com/epfl-lasa/demo-voice-control.git) (Optional) | -->
 
@@ -33,7 +33,7 @@ $ rosdep install --from-paths . --ignore-src --rosdistro noetic
 ```
 
 ---
-## Usage: Recording Kinesthetic Demonstrations as ROSBags
+## Step 1: Recording Kinesthetic Demonstrations as ROSBags
 
 ### Bringup Kinesthetic Teaching Pipeline
 #### Run Franka-ROS-Kinesthetic Controller
@@ -142,9 +142,9 @@ This code together with [franka_interactive_controllers](https://github.com/nbfi
 
 ---
 
-## Usage: Extracting ROSBag Data for Motion Policy Learning
+## Step 2: Extracting ROSBag Data for Motion Policy Learning
 
-### Extracting ROSBag Data to MATLAB
+### Extracting ROSBag Data to MATLAB (Working)
 To export the data recorded in the rosbags to matlab you can use the package [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag) package. In the folder ``` my_matlab_rosbag/tasks/``` you will find a script that processes the rosbag topics and converts them to mat file. The ```corl_demos.m``` script will generate the following plots:
 <p align="center">
 	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1.png" width="400"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2.png" width="400">
@@ -172,7 +172,8 @@ For more complex scenarios where the gripper state is not a sufficient indicatio
 
 <!-- possibly with my segmentation algorithm: https://github.com/nbfigueroa/ICSC-HMM or Lucia's Constraint-based approach https://ieeexplore.ieee.org/document/7339616/ -->
 
-### Extracting ROSBag Data to MATLAB
+### Extracting ROSBag Data to Python
+This functionality hasn't been tested yet but I suggest to try out the [bagpy](https://jmscslgroup.github.io/bagpy/): a python package provides specialized class bagreader to read and decode ROS messages from bagfiles in just a few lines of code. 
 
 ---
 ## Contact
