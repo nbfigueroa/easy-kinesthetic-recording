@@ -10,30 +10,33 @@ Scripts and instructions to easily record data from kinesthetic demonstrations a
 | [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) |
 | [record_ros](https://github.com/nbfigueroa/record_ros) |
 | [rosbag_to_mat](https://github.com/nbfigueroa/rosbag_to_mat) (If you want to export data to MATLAB)|
+| [bagpy](https://github.com/nbfigueroa/rosbag_to_mat) (If you want to export data to MATLAB)|
+
 <!-- | [demo-voice-control](https://github.com/epfl-lasa/demo-voice-control.git) (Optional) | -->
 
 
 To automagically install dependencies do the following steps:
 * In your catkin src directory clone the repository
-```
+```bash
 $ git clone -b latest-franka https://github.com/nbfigueroa/easy-kinesthetic-recording.git
 ```
 * wstool gets all other git repository dependencies, after the following steps you should see extra catkin 
   packages in your src directory.
-```
+```bash
 $  wstool init
 $  wstool merge easy-kinesthetic-recording/dependencies.rosinstall 
 $  wstool up 
 ```
 * Query and installs all libraries and packages 
-```
+```bash
 $ rosdep install --from-paths . --ignore-src --rosdistro noetic 
 ```
 
 ---
-## Usage
+## Usage: Recording Kinesthetic Demonstrations as ROSBags
 
-### Run Franka-ROS-Kinesthetic Controller
+### Bringup Kinesthetic Teaching Pipeline
+#### Run Franka-ROS-Kinesthetic Controller
 Here we assume you have installed the [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) package and know how to use it. 
 
 In two terminals you should launch the following:
@@ -46,7 +49,7 @@ roslaunch franka_interactive_controllers joint_gravity_compensation_controller.l
 
 ##### Run Topic Recorder
 In the launch file ```launch/franka_record_demonstrations.launch``` you can define the topics that you wish to record in the following argument.
-```
+```xml
 	<arg name="topic"  	    
 		default="/tf 
 		/franka_state_controller/joint_states 
@@ -56,7 +59,7 @@ In the launch file ```launch/franka_record_demonstrations.launch``` you can defi
 		/franka_gripper/joint_states"/>	
 ```
 You must also define the path to the directory where all bags will be recorded and the bag prefix-:
-```
+```xml
 <arg name="path_save"      default="/home/panda2/rosbag_recordings/cooking/"/>
 <arg name="file_name"  	   default="demo"/>
 ```
@@ -65,7 +68,7 @@ Once you've done this, you can run the following launch file:
 roslaunch easy_kinesthetic_recording franka_record_demonstrations.launch
 ```
 
-Alternatively, you can launch the following launch file from [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) that will bringup both the joint gravity compensation controllers and the topic recording launch file: 
+**Alternatively**, you can launch the following launch file from [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) that will bringup both the joint gravity compensation controllers and the topic recording launch file: 
 ```bash
 roslaunch franka_interactive_controllers franka_kinesthetic_teaching.launch
 ```
@@ -77,6 +80,9 @@ You should now see the following displayed in your screen (without the trajector
 </p>
 
 
+**NOTE: If you run this script and the robot moves by itself, that means that your external_tool_compensation forces are incorrect. See external_tool_compensation instructions to correct it.**
+
+### Record Demonstrations as ROSbags
 To record/stop a rosbag recording you can either do it by: 
 - Pressing the buttons on the GUI as shown in the image above
 - Type the following in a terminal
@@ -89,7 +95,6 @@ To control the ```rosservice call``` for the recorder node with voice commands, 
 ```bash
 roslaunch demo_voice_control teach_voice_control.launch
 ``` -->
-
 
 ### Replaying a recorded demonstration
 You can replay the recorded demonstrations by running the following commands:
@@ -124,21 +129,22 @@ This code together with [franka_interactive_controllers](https://github.com/nbfi
 - **cooking preparation task**: scooping and mixing ingredients from bowls
 
 <p align="center">
-	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_task_reduced.gif" width="450x">
+	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_task_reduced.gif" width="425x">
 <!-- 	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_recording.gif" width="400x">  -->
-	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_rosbag_replay.gif" width="475x">
+	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/latest-franka/img/scooping_rosbag_replay.gif" width="450x">
 </p>
 <p align="center">
-	*[Left: Real continuous demonstatrion, Right: Visualization of recorded trajectories by replaying recorded rosbag]*
+	Left: Video of kinesthetic demonstration, Right: Visualization of recorded trajectories by replaying recorded rosbag
 </p>
 
 - **table setting task**: grasping plates/cutlery from dish rack and placing it on a table.
 *To Fill..*
 
+---
 
+## Usage: Extracting ROSBag Data for Motion Policy Learning
 
-### Extracting Data to Matlab
-**[UPDATE TO NEW STUFF]**
+### Extracting ROSBag Data to MATLAB
 To export the data recorded in the rosbags to matlab you can use the package [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag) package. In the folder ``` my_matlab_rosbag/tasks/``` you will find a script that processes the rosbag topics and converts them to mat file. The ```corl_demos.m``` script will generate the following plots:
 <p align="center">
 	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1.png" width="400"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2.png" width="400">
@@ -166,8 +172,11 @@ For more complex scenarios where the gripper state is not a sufficient indicatio
 
 <!-- possibly with my segmentation algorithm: https://github.com/nbfigueroa/ICSC-HMM or Lucia's Constraint-based approach https://ieeexplore.ieee.org/document/7339616/ -->
 
+### Extracting ROSBag Data to MATLAB
 
-**Contact**: [Nadia Figueroa](https://nbfigueroa.github.io/) (nadiafig AT seas dot upenn dot edu)
+---
+## Contact
+[Nadia Figueroa](https://nbfigueroa.github.io/) (nadiafig AT seas dot upenn dot edu)
 
 
 
