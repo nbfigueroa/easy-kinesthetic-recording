@@ -10,7 +10,7 @@ Scripts and instructions to easily record data from kinesthetic demonstrations a
 | [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) |
 | [record_ros](https://github.com/nbfigueroa/record_ros) |
 | [rosbag_to_mat](https://github.com/nbfigueroa/rosbag_to_mat) (If you want to export data to MATLAB)|
-| [demo-voice-control](https://github.com/epfl-lasa/demo-voice-control.git) (Optional) |
+<!-- | [demo-voice-control](https://github.com/epfl-lasa/demo-voice-control.git) (Optional) | -->
 
 
 To automagically install dependencies do the following steps:
@@ -62,7 +62,12 @@ You must also define the path to the directory where all bags will be recorded a
 ```
 Once you've done this, you can run the following launch file:
 ```bash
-roslaunch easy_kinesthetic_recording franka_record_demonstra----tions.launch
+roslaunch easy_kinesthetic_recording franka_record_demonstrations.launch
+```
+
+Alternatively, you can launch the following launch file from [franka_interactive_controllers](https://github.com/nbfigueroa/franka_interactive_controllers) that will bringup both the joint gravity compensation controllers and the topic recording launch file: 
+```bash
+roslaunch franka_interactive_controllers franka_record_demonstrations.launch
 ```
 
 You should now see the following displayed in your screen (without the trajectories):
@@ -78,11 +83,12 @@ To record/stop a rosbag recording you can either do it by:
 ```bash
  rosservice call /record/cmd "cmd: 'record/stop'"
  ```
-- Control Topic Recorder with Voice Commands (Optional - TBD for Franka)
+ 
+<!-- - Control Topic Recorder with Voice Commands (Optional - TBD for Franka)
 To control the ```rosservice call``` for the recorder node with voice commands, you should install and following the intructions in the voice control package https://github.com/epfl-lasa/demo-voice-control.git and run the launch file:
-	```bash
-	roslaunch demo_voice_control teach_voice_control.launch
-	```
+```bash
+roslaunch demo_voice_control teach_voice_control.launch
+``` -->
 
 ### Examples
 
