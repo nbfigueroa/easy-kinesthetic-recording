@@ -145,32 +145,18 @@ This code together with [franka_interactive_controllers](https://github.com/nbfi
 ## Step 2: Extracting ROSBag Data for Motion Policy Learning
 
 ### Extracting ROSBag Data to MATLAB (Working)
-To export the data recorded in the rosbags to matlab you can use the package [my-matlab-rosbag](https://github.com/nbfigueroa/my_matlab_rosbag) package. In the folder ``` my_matlab_rosbag/tasks/``` you will find a script that processes the rosbag topics and converts them to mat file. The ```corl_demos.m``` script will generate the following plots:
+To export the data recorded in the rosbags to MATLAB you can use the [rosbag_to_mat](https://github.com/nbfigueroa/rosbag_to_mat) package. Follow the instructions in the README file to extract data for the following tasks:
+
+#### cooking preparation task
+Raw trajectories from demonstrations (colors indicate continuous demonstration):
 <p align="center">
-	<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1.png" width="400"><img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2.png" width="400">
-</>
-
-In these case, the recorded trajectories are labeled using the robotiq gripper state, hence segmentation of the recordings is straightforward; i.e. 
-- when the gripper is closed, this indicates the non-linear motion that must be learned
-- when the gripper is open, this indicates a "picking" or "back" motion that can also be learned
-
-In the folder ``` my_matlab_rosbag/trajectory-processing/``` the script named: ```extract_trajectories.m``` will generate data structures containing the trajectories corresponding to each primitive. It will compute the velocities of the end effector positions using the Savitsky-Golay filter. Hence the script will generate the following data:
-
-- For Scenario 1
-<p align="center">
-<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_prim1_processed.png" width="850">
-<!--   <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario1_prim0_processed.png" width="850"> -->
+  <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka-cooking-multistep.png" width="500x"> 
 </p>
 
-- For Scenario 2
-<p align="center">
-<img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_prim1_processed.png" width="850">
-  <img src="https://github.com/nbfigueroa/easy-kinesthetic-recording/blob/kuka-lwr-ros/img/Scenario2_prim0_processed.png" width="850">
-</p>
+Segmented and processed trajectories from demonstrations (colors indicate trajectory clusters):
 
-For more complex scenarios where the gripper state is not a sufficient indication of a phase/action change, you should segment the trajectories. 
 
-<!-- possibly with my segmentation algorithm: https://github.com/nbfigueroa/ICSC-HMM or Lucia's Constraint-based approach https://ieeexplore.ieee.org/document/7339616/ -->
+- **table setting task**:
 
 ### Extracting ROSBag Data to Python
 This functionality hasn't been tested yet but I suggest to try out the [bagpy](https://jmscslgroup.github.io/bagpy/): a python package provides specialized class bagreader to read and decode ROS messages from bagfiles in just a few lines of code. 
