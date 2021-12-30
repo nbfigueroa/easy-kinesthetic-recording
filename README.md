@@ -145,18 +145,32 @@ This code together with [franka_interactive_controllers](https://github.com/nbfi
 ## Step 2: Extracting ROSBag Data for Motion Policy Learning
 
 ### Extracting ROSBag Data to MATLAB (Working)
-To export the data recorded in the rosbags to MATLAB you can use the [rosbag_to_mat](https://github.com/nbfigueroa/rosbag_to_mat) package. Follow the instructions in the README file to extract data for the following tasks:
+To export the data recorded in the rosbags to MATLAB you can use the [rosbag_to_mat](https://github.com/nbfigueroa/rosbag_to_mat) package. Follow the instructions in the [README](https://github.com/nbfigueroa/rosbag_to_mat/blob/main/README.md) file to extract data for the following tasks:
 
-#### cooking preparation task
+#### Cooking Preparation Task
 Raw trajectories from demonstrations (colors indicate continuous demonstration):
 <p align="center">
-  <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka-cooking-multistep.png" width="500x"> 
+  <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka-cooking-multistep.png" width="700x"> 
 </p>
 
-Segmented and processed trajectories from demonstrations (colors indicate trajectory clusters):
+Segmented and processed trajectories from demonstrations (colors indicate trajectory clusters), see [README](https://github.com/nbfigueroa/rosbag_to_mat/blob/main/README.md) for segmentation details:
+
+<p align="center">
+  <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka-cooking-multistep-segmented.png" width="500x"> 
+</p>
 
 
-- **table setting task**:
+#### Table Setting Task
+Raw trajectories from demonstrations (colors indicate continuous demonstration):
+<p align="center">
+  <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka-tablesetting-multistep.png" width="700x"> 
+</p>
+
+Segmented and processed trajectories from demonstrations (colors indicate trajectory clusters), see [README](https://github.com/nbfigueroa/rosbag_to_mat/blob/main/README.md) for segmentation details:
+
+<p align="center">
+  <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka-tablesetting-multistep-segmented.png" width="500x"> 
+</p>
 
 ### Extracting ROSBag Data to Python
 This functionality hasn't been tested yet but I suggest to try out the [bagpy](https://jmscslgroup.github.io/bagpy/): a python package provides specialized class bagreader to read and decode ROS messages from bagfiles in just a few lines of code. 
