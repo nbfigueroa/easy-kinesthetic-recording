@@ -156,9 +156,8 @@ Raw trajectories from demonstrations (colors indicate continuous demonstration):
 Segmented and processed trajectories from demonstrations (colors indicate trajectory clusters), see [README](https://github.com/nbfigueroa/rosbag_to_mat/blob/main/README.md) for segmentation details:
 
 <p align="center">
-  <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka-cooking-multistep-segmented.png" width="500x"> 
+  <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka_cooking_DS_s1_clustered_trajectories.png" width="306x"><img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka_cooking_DS_s2_clustered_trajectories.png" width="302x"><img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka_cooking_DS_s3_clustered_trajectories.png" width="300x"> 
 </p>
-
 
 #### Table Setting Task
 Raw trajectories from demonstrations (colors indicate continuous demonstration):
