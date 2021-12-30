@@ -182,6 +182,8 @@ If the trajectories are continuous demonstrations of **a multi-step task** which
   <img src="https://github.com/nbfigueroa/rosbag_to_mat/blob/main/figs/franka-tablesetting-multistep-segmented.png" width="500x"> 
 </p>
 
+
+
 ---
 ## Contact
 [Nadia Figueroa](https://nbfigueroa.github.io/) (nadiafig AT seas dot upenn dot edu)
