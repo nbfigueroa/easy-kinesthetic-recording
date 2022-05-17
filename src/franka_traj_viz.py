@@ -41,7 +41,7 @@ class TaskTrajectory(object):
     def callback(self, msg):
         self._object_pose = msg.pose
         point = self._object_pose.position
-        if (len(self._trajectory) > 100):
+        if (len(self._trajectory) > 200):
             self._trajectory = []
             self._trajectory.append(point)
 

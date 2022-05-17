@@ -7,7 +7,7 @@
 		/franka_state_controller/O_T_EE 
 		/franka_state_controller/O_T_FL 
 		/franka_gripper/joint_states"/>
-	<arg name="path_save"        default="/home/panda2/rosbag_recordings/cooking/"/>	
+	<arg name="path_save"        default="/home/nadiafig/recordings/icra-22-demo/bags/"/>	
 	<arg name="file_name"  	     default="demo"/>
 	<arg name="viz_traj"  	     default="true"/>
 	<arg name="viz_obj"  	     default="true"/>
